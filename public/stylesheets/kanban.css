@@ -1,0 +1,116 @@
+/* .kanban {
+	padding: 30px;
+	width: 100%;
+	background: #fff;
+
+} */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    /* ===== Colors ===== */
+    --body-color: #FFF;
+    --sidebar-color: #E4E9F7;
+    --primary-color: #4EA261;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+    --panel-color: #FFF;
+    --border-color: #e6e5e5;
+    --box1-color: #F6F5FF;
+    --box2-color: #F6F5FF;
+    --box3-color: #F6F5FF;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+.kanban{
+	display: flex;
+    /* position: absolute; */
+    margin-left: 1rem;
+    /* left: 250px; */
+    top: 0;
+    background-color: var(--panel-color);
+    min-height: 80%;
+    width: calc(100% - 100px);
+    transition: var(--tran-05);
+    border-radius: 5px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 8rem;
+
+}
+
+.kanban__column {
+	/* flex: 1; */
+    padding: 0px 1rem 0px 1rem;
+    border-radius: 10px;
+    width: 20%;
+    background-color: #E5E5E5;
+}
+
+.kanban__column:not(:last-child) {
+	margin-right: 30px;
+}
+.kanban__column:nth-child(2) {
+    width: 60%;
+    background-color: #F3F3F3;
+}
+
+
+.kanban__column-title {
+	/* margin-bottom: 10px; */
+    margin : 1rem 0rem 0.1rem 0rem;  
+	font-size: 15px;
+    white-space: nowrap;
+    color: var(--text-color);
+	user-select: none;
+}
+
+.kanban__item-input {
+	padding: 10px 15px;
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+    border-color: #D3D3D3;
+}
+
+.kanban__dropzone {
+	height: 10px;
+	transition: background 0.15s, height 0.15s;
+}
+
+.kanban__dropzone--active {
+	height: 20px;
+	background: rgba(0, 0, 0, 0.25);
+}
+
+.kanban__add-item {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: var(--primary-color);;
+	background: rgba(0, 0, 0, 0.1);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+body.dark .kanban__add-item {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.1);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}

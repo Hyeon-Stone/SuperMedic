@@ -1,0 +1,27 @@
+{
+  "name": "supermedic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "some",
+    "keywords"
+  ],
+  "author": "Hyeon-Stone",
+  "license": "",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "electron": "^22.0.2",
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "upgrade": "^1.1.0"
+  }
+}
