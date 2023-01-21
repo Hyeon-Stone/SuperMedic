@@ -34,18 +34,15 @@
 
 .kanban{
 	display: flex;
-    /* position: absolute; */
     margin-left: 1rem;
-    /* left: 250px; */
     top: 0;
-    background-color: var(--panel-color);
     min-height: 80%;
     width: calc(100% - 100px);
     transition: var(--tran-05);
     border-radius: 5px;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 8rem;
+    margin-top: 1rem;
 
 }
 
@@ -69,19 +66,35 @@
 .kanban__column-title {
 	/* margin-bottom: 10px; */
     margin : 1rem 0rem 0.1rem 0rem;  
-	font-size: 15px;
+	font-size: 1.2vw;
     white-space: nowrap;
     color: var(--text-color);
 	user-select: none;
+    font-weight: bold;
+    display: inline-flex;
 }
-
+.kanban__column:nth-child(2) .kanban__item{
+    display: inline-flex;
+    width: 33%;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.kanban__column:nth-child(2) .kanban__item-input{
+    width: 100%;
+}
+.kanban__column[data-id="2"] > .kanban__column-title{
+    margin-bottom: 10px;
+}
 .kanban__item-input {
 	padding: 10px 15px;
 	box-sizing: border-box;
 	background: #fff;
 	border-radius: 5px;
 	cursor: pointer;
-    border-color: #D3D3D3;
+    border: solid;
+    border-width: 0.5px;
+    border-color: #a5a5a5 !important;
+    box-shadow: 0 3px 3px rgba(180,180,180,0.25), 0 5px 5px rgba(180,180,180,0.22);
 }
 
 .kanban__dropzone {
@@ -93,6 +106,17 @@
 	height: 20px;
 	background: rgba(0, 0, 0, 0.25);
 }
+.kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone{
+    width: 20px;
+    height: 44px;
+    transition: background 0.15s, width 0.15s;
+}
+.kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone--active{
+    width: 30px;
+    height: 44px;
+	background: rgba(0, 0, 0, 0.25);
+}
+
 
 .kanban__add-item {
 	width: 100%;
@@ -104,13 +128,72 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
+body.dark .kanban__column {
+	/* flex: 1; */
+    padding: 0px 1rem 0px 1rem;
+    border-radius: 10px;
+    width: 20%;
+    background-color: var(--box1-color);
+}
+body.dark .kanban__column:not(:last-child) {
+	margin-right: 30px;
+    background-color: var(--box1-color);
+}
+body.dark .kanban__column:nth-child(2) {
+    width: 60%;
+    background-color: var(--box1-color);
+}
+
 body.dark .kanban__add-item {
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
-	color: #fff;
+	color: var(--text-color);
 	background: rgba(0, 0, 0, 0.1);
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+}
+body.dark .kanban__column-title {
+	/* margin-bottom: 10px; */
+    margin : 1rem 0rem 0.1rem 0rem;  
+	font-size: 1.2vw;
+    white-space: nowrap;
+    color: var(--text-color);
+	user-select: none;
+}
+body.dark .kanban__item-input {
+	padding: 10px 15px;
+	box-sizing: border-box;
+	background: var(--text-color);
+	border-radius: 5px;
+	cursor: pointer;
+    border-color:rgba(0, 0, 0, 0.1);
+}
+.add_patient{
+    display: inline-block !important;
+    font-size: 1.2vw;
+    color: var(--primary-color);
+    width: calc(100% - 4.2vw);
+    text-align: right;
+    margin-top: 10vh;
+}
+.add-item{
+    border-radius: 5px !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color);
+    background-color: #fff;
+    border: solid;
+    padding: 2px 4px 2px 4px;
+    cursor: pointer;
+}
+.title_icon{
+    content: url('https://api.iconify.design/flat-color-icons/calendar.svg');
+    padding-right: 5px;
+    object-fit: fill;
+}
+.kanban__column[data-id="2"] > .kanban__column-title > .title_icon{
+    content: url('https://api.iconify.design/twemoji/hourglass-with-flowing-sand.svg?flip=horizontal');
+    padding-right: 5px;
+    object-fit: fill;
 }

@@ -23,7 +23,7 @@ else {
 // const names = [{id: 1, name: 'a'}, {id: 2, name: 'b'}, {id: 3, name: 'c'}];
 // writeIdxedDB(names);
 function writeIdxedDB(names) {
-    const request = window.indexedDB.open('SampleDB');
+    const request = window.indexedDB.open('viewOptionDB');
     request.onerror =(e)=> {
         alert('DataBase error', e.target.errorCode);
     }
@@ -56,7 +56,7 @@ function writeIdxedDB(names) {
  */
 //getIdxedDBValue(1);  // { id:1, name:"a" }
 function getIdxedDBValue(key) {
-    const request = window.indexedDB.open('SampleDB');  // 1. DB 열기
+    const request = window.indexedDB.open('viewOptionDB');  // 1. DB 열기
     request.onerror =(e)=> console.log(e.target.errorCode);
 
     request.onsuccess =(e)=> {
@@ -68,8 +68,8 @@ function getIdxedDBValue(key) {
         const objStore = transaction.objectStore('name');
         const objStoreRequest = objStore.get(key);        // 2. get으로 데이터 접근
         objStoreRequest.onsuccess =(e)=> {
-        console.log(objStoreRequest.result)
-    }
+            console.log(objStoreRequest.result)
+        }
     }
 }
 
@@ -78,7 +78,7 @@ function getIdxedDBValue(key) {
  */
 // getIdxedDBValues();  // { id:1, name:"a" }, {id: 2, name: 'b'}, {id: 3, name: 'c'}
 function getIdxedDBValues() {
-    const request = window.indexedDB.open('SampleDB');      // 1. DB 열기
+    const request = window.indexedDB.open('viewOptionDB');      // 1. DB 열기
     request.onerror =(e)=> console.log(e.target.errorCode);
 
     request.onsuccess =(e)=> {
@@ -109,7 +109,7 @@ function getIdxedDBValues() {
  */
 // updateIdxedDBValue(1, {id: 1, name: 'vvvv'}); 
 function updateIdxedDBValue(key, value) {
-    const request = window.indexedDB.open('SampleDB');  // 1. db 열기
+    const request = window.indexedDB.open('viewOptionDB');  // 1. db 열기
     request.onerror =(e)=> console.log(e.target.errorCode);
 
     request.onsuccess =(e)=> {
@@ -134,7 +134,7 @@ function updateIdxedDBValue(key, value) {
  */
 // deleteIdxedDBValue(1);
 function deleteIdxedDBValue(key) {
-    const request = window.indexedDB.open('SampleDB');     // 1. db 열기
+    const request = window.indexedDB.open('viewOptionDB');     // 1. db 열기
     request.onerror =(e)=> console.log(e.target.errorCode);
 
     request.onsuccess =(e)=> {
@@ -156,7 +156,7 @@ function deleteIdxedDBValue(key) {
  */
 // clearIdxedDBValue();
 function clearIdxedDBValue() {
-    const request = window.indexedDB.open('SampleDB');     // 1. db 열기
+    const request = window.indexedDB.open('viewOptionDB');     // 1. db 열기
     request.onerror =(e)=> console.log(e.target.errorCode);
 
     request.onsuccess =(e)=> {
