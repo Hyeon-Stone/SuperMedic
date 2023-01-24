@@ -11,12 +11,14 @@ const kanban_column = `
 export default class Column {
 	constructor(id, title) {
 		this.elements = {};
-		const topDropZone = DropZone.createDropZone();
 		this.elements.root = Column.createTag(kanban_column);
 		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
 		this.elements.items = this.elements.root.querySelector(".kanban__column-items");
 		this.elements.root.dataset.id = id;
-		// this.elements.root.appendChild(topDropZone);
+		if(id != 2){
+			const topDropZone = DropZone.createDropZone();
+			this.elements.root.appendChild(topDropZone);
+		}
 
 		// 칸반보드 각 제목의 title_icon class의 태그 생성
 		this.elements.icon = Column.createTag(`<span class="title_icon"></span>`);
@@ -34,7 +36,22 @@ export default class Column {
 					let form = regWin.document.querySelector('form')
 					form.addEventListener("submit", () => {
 						const data = new FormData(form);
-						const newItem = KanbanAPI.insertItem(id, data);
+						let gender
+						if (data.has('male') == true){
+							gender = '남';
+						}
+						else{
+							gender = '여';
+						}
+						const info = {
+							name :  data.get('name'),
+							age : data.get('age'),
+							blood_type : data.get('blood_type'),
+							allergy : data.get('allergy'),
+							gender : gender
+						}
+						let content = JSON.stringify(info);
+						const newItem = KanbanAPI.insertItem(id, content);
 						this.renderItem(newItem);
 						regWin.close();
 					});

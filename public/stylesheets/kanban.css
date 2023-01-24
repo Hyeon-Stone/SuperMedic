@@ -79,25 +79,12 @@
     justify-content: center;
     margin-bottom: 10px;
 }
-.kanban__column:nth-child(2) .kanban__item-input{
-    width: 100%;
-}
 .kanban__column[data-id="2"] > .kanban__column-title{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
-.kanban__item{
-    height: 70px;
-}
+
 .kanban__item-input {
-	padding: 10px 15px;
-	box-sizing: border-box;
-	background: #fff;
-	border-radius: 5px;
-	cursor: pointer;
-    border: solid;
-    border-width: 0.5px;
-    border-color: #a5a5a5 !important;
-    box-shadow: 0 3px 3px rgba(180,180,180,0.25), 0 5px 5px rgba(180,180,180,0.22);
+    display: none;
 }
 
 .kanban__dropzone {
@@ -200,9 +187,75 @@ body.dark .kanban__item-input {
     padding-right: 5px;
     object-fit: fill;
 }
-#name,#age,#blood_type,#allergy {
-    display: none;
-}
 .info{
+    min-width: 200px;
+    padding: 10px 15px;
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+    border: solid;
+    border-width: 0.5px;
+    border-color: #a5a5a5 !important;
+    box-shadow: 0 3px 3px rgba(180,180,180,0.25), 0 5px 5px rgba(180,180,180,0.22);
+}
+.first_line{
+    position:relative;
+}
+.name{
     display: inline-flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+.gender{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    font-size: 10px;
+    color: #FFF;
+    background-color: #FB88FF;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+    margin-left: 5px;
+}
+.gender_male{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    font-size: 10px;
+    color: #FFF;
+    background-color: #0090FF;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+    margin-left: 5px;
+    
+}
+.age, .blood_type, .allergy{
+    width: 30%;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+}
+.allergy{
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+    vertical-align:middle;
+}
+.age_title, .blood_type_title, .allergy_title{
+    width: 30%;
+    font-size: 8px;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
 }

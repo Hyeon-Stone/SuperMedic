@@ -5,7 +5,20 @@ import KanbanAPI from "./kanbanAPI.js";
 const kanban_item = `
 <div class="kanban__item" draggable="true">
 	<div class="kanban__item-input" contenteditable></div>
-
+	<div class="block">
+		<div class="info">
+			<div class="first_line">
+				<div class="name"></div>
+				<div class="gender"></div>
+			</div>
+			<div class="age_title">나이</div>
+			<div class="blood_type_title">혈액형</div>
+			<div class="allergy_title">알레르기</div>
+			<div class="age"></div>
+			<div class="blood_type"></div>
+			<div class="allergy"></div>
+		</div>
+	</div>
 </div>
 `
 
@@ -16,12 +29,27 @@ export default class Item {
 		this.elements = {};
 		this.elements.root = Item.createTag(kanban_item);
 		this.elements.input = this.elements.root.querySelector(".kanban__item-input");
-
 		this.elements.root.dataset.id = id;
 		this.elements.input.textContent = content;
 		this.content = content;
 		this.elements.root.prepend(frontDropZone);
 		this.elements.root.appendChild(bottomDropZone);
+
+		const info = JSON.parse(content)
+		this.elements.name = this.elements.root.querySelector('.name')
+		this.elements.age = this.elements.root.querySelector('.age')
+		this.elements.blood_type = this.elements.root.querySelector('.blood_type')
+		this.elements.allergy = this.elements.root.querySelector('.allergy')
+		this.elements.gender = this.elements.root.querySelector('.gender')
+		this.elements.name.textContent = info['name'];
+		this.elements.age.textContent = info['age'];
+		this.elements.blood_type.textContent = info['blood_type'];
+		this.elements.allergy.textContent = info['allergy'];
+		this.elements.gender.textContent = info['gender'];
+		if (info['gender'] == '남') {
+			this.elements.gender.className += '_male'
+			console.log("asdasd")
+		}
 
 		const onBlur = () => {
 			const newContent = this.elements.input.textContent.trim();
