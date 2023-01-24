@@ -7,11 +7,53 @@
         <title>환자 등록</title>
         <link rel="shortcut icon" type="image/x-icon" href="../images/logo-fabicon.png">
         <link rel="stylesheet" href="../stylesheets/home.css">
+        <link rel="stylesheet" href="../stylesheets/regpatient.css">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>    
     </head>
     <body>
-        
-
+        <div class="container">
+            <div class="title">환자 등록</div>
+            <div class="content">
+                <form>
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">환자이름</span>
+                            <input type="text" name="name" placeholder="이름을 입력하세요" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">나이</span>
+                            <input type="text" name="age" placeholder="나이를 입력하세요" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">혈액형</span>
+                            <input type="text" name="blood_type" placeholder="혈액형을 입력하세요" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">알레르기</span>
+                            <input type="text" name="allergy" placeholder="알레르기를 입력하세요" required>
+                        </div>
+                    </div>
+                    <div class="gender-details">
+                        <input type="radio" name="gender" id="dot-1">
+                        <input type="radio" name="gender" id="dot-2">
+                        <span class="gender-title">Gender</span>
+                        <div class="category">
+                            <label for="dot-1">
+                                <span class="dot one"></span>
+                                <span class="gender">Male</span>
+                            </label>
+                            <label for="dot-2" >
+                                <span class="dot two"></span>
+                                <span class="gender">Female</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button id="register" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
 

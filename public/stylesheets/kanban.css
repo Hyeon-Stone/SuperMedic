@@ -85,6 +85,9 @@
 .kanban__column[data-id="2"] > .kanban__column-title{
     margin-bottom: 10px;
 }
+.kanban__item{
+    height: 70px;
+}
 .kanban__item-input {
 	padding: 10px 15px;
 	box-sizing: border-box;
@@ -108,12 +111,12 @@
 }
 .kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone{
     width: 20px;
-    height: 44px;
+    height: inherit;
     transition: background 0.15s, width 0.15s;
 }
 .kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone--active{
     width: 30px;
-    height: 44px;
+    height: inherit;
 	background: rgba(0, 0, 0, 0.25);
 }
 
@@ -196,4 +199,10 @@ body.dark .kanban__item-input {
     content: url('https://api.iconify.design/twemoji/hourglass-with-flowing-sand.svg?flip=horizontal');
     padding-right: 5px;
     object-fit: fill;
+}
+#name,#age,#blood_type,#allergy {
+    display: none;
+}
+.info{
+    display: inline-flex;
 }

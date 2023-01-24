@@ -1,15 +1,14 @@
 import DropZone from "./dropZone.js";
 import DropZoneBefore from "./dropZoneBefore.js";
-
 import KanbanAPI from "./kanbanAPI.js";
 
 const kanban_item = `
 <div class="kanban__item" draggable="true">
 	<div class="kanban__item-input" contenteditable></div>
+
 </div>
 `
 
- 
 export default class Item {
 	constructor(id, content) {
 		const bottomDropZone = DropZone.createDropZone();

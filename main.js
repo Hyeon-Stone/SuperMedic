@@ -9,8 +9,8 @@ let mainWindow;
 function createMainWindow() {
     mainWindow = new BrowserWindow({
         title : "슈퍼메딕",
-        width: isDev ? 1200 : 500,
-        height: 800,
+        width: isDev ? 1400 : 500,
+        height: 1000,
         icon: path.join(__dirname, './appLogo.png'),
         resizable: isDev,
         webPreferences: {
