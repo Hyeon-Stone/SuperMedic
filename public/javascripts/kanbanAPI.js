@@ -13,14 +13,11 @@ export default class KanbanAPI {
 			id: Math.floor(Math.random() * 100000),
 			content
 		};
-
 		if (!column) {
 			throw new Error("Column does not exist.");
 		}
-
 		column.items.push(item);
 		save(data);
-
 		return item;
 	}
 
@@ -35,52 +32,41 @@ export default class KanbanAPI {
 				}
 			}
 		})();
-
 		if (!item) {
 			throw new Error("Item not found.");
 		}
-
 		item.content = newProps.content === undefined ? item.content : newProps.content;
-
 		// Update column and position
 		if (
 			newProps.columnId !== undefined
 			&& newProps.position !== undefined
 		) {
 			const targetColumn = data.find(column => column.id == newProps.columnId);
-
 			if (!targetColumn) {
 				throw new Error("Target column not found.");
 			}
-
 			// Delete the item from it's current column
 			currentColumn.items.splice(currentColumn.items.indexOf(item), 1);
-
 			// Move item into it's new column and position
 			targetColumn.items.splice(newProps.position, 0, item);
 		}
-
 		save(data);
 	}
 
 	static deleteItem(itemId) {
 		const data = read();
-
 		for (const column of data) {
 			const item = column.items.find(item => item.id == itemId);
-
 			if (item) {
 				column.items.splice(column.items.indexOf(item), 1);
 			}
 		}
-
 		save(data);
 	}
 }
 
 function read() {
 	const json = localStorage.getItem("kanban-data");
-
 	if (!json) {
 		return [
 			{

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>슈퍼메딕</title>
+        <link rel="shortcut icon" type="image/x-icon" href="../images/logo-fabicon.png">
+        <link rel="stylesheet" href="../stylesheets/home.css">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>    
+    </head>
+    <body>
+        <nav class="sidebar open">
+            <header>
+                <div class="basic_info">
+                    <span class="basic">기본사항</span>
+                    <div class="patient_name"></div>
+                    <div class="patient_gender"></div>
+                </div>
+            </header>
+            <div class="menu-bar">
+                <div class="menu_detail">
+                    <ul class="menu-links">
+                        <li class="nav-info">
+                            <span class="text text-title">나이</span>
+                            <span class="text nav-text patient_age"></span>
+                        </li>
+                        <li class="nav-info">
+                            <span class="text text-title">혈액형</span>
+                            <span class="text nav-text patient_blood_type"></span>
+                        </li>
+                        <li class="nav-info">
+                            <span class="text text-title">알레르기</span>
+                            <span class="text nav-text patient_allergy"></span>
+                        </li>
+                        <li class="nav-info">
+                            <span class="text text-title">신장</span>
+                            <span class="text nav-text patient_height"></span>
+                        </li>
+                        <li class="nav-info">
+                            <span class="text text-title">체중</span>
+                            <span class="text nav-text patient_weight"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom-content">
+                    <li class="">
+                        <a href="#">
+                            <i class='bx bx-log-out icon' ></i>
+                            <span class="text nav-text">Logout</span>
+                        </a>
+                    </li>
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <i class='bx bx-moon icon moon'></i>
+                            <i class='bx bx-sun icon sun'></i>
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                </div>
+            </div>
+        </nav>
+
+
+        <section class="dashboard">
+            <div class="dash-content">
+                <div class="overview">
+                    <div class="title">
+                        <i></i>
+                        <span class="text health">건강검진</span>
+                    </div>
+                    <div class="boxes">
+                        <div class="box box1">
+                            <div class="left">
+                                <div class="line">
+                                    <span class="line_title">혈압</span>
+                                    <span class="line_data">125mmHg</span>
+                                    <img class="orange"src="" alt="">
+                                </div>
+                                <div class="line">
+                                    <span class="line_title">공복혈당</span>
+                                    <span class="line_data">96mh/dL</span>
+                                    <img class="green" src="" alt="">
+                                </div>
+                                <div class="line">
+                                    <span class="line_title">혈색소</span>
+                                    <span class="line_data">19g/dL</span>
+                                    <img class="red" src="" alt="">
+                                </div>
+                                <div class="line">
+                                    <span class="line_title">총 콜레스테롤</span>
+                                    <span class="line_data">192mg/dL</span>
+                                    <img class="green" src="" alt="">
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="line">
+                                    <span class="line_title">혈청 크레아티닌</span>
+                                    <span class="line_data">0.8mg/dL</span>
+                                    <img class="orange"src="" alt="">
+                                </div>
+                                <div class="line">
+                                    <span class="line_title">AST</span>
+                                    <span class="line_data">26 IU/L</span>
+                                    <img class="green" src="" alt="">
+                                </div>
+                                <div class="line">
+                                    <span class="line_title">ALT</span>
+                                    <span class="line_data">24 IU/L</span>
+                                    <img class="green" src="" alt="">
+                                </div>
+                                <div class="line">
+                                    <span class="line_title">감마지티피</span>
+                                    <span class="line_data">31 IU/L</span>
+                                    <img class="green" src="" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="activity">
+                    <div class="title">
+                        <i></i>
+                        <span class="text health">과거 검진 내역</span>
+                    </div>
+                    <div class="boxes">
+                        <div class="box box1">
+                            <div class="activity-data">
+                                <div class="data names">
+                                    <span class="data-title">진료일</span>
+                                    <span class="data-list">2023-01-05</span>
+                                    <span class="data-list">2023-01-03</span>
+                                    <span class="data-list">2023-01-01</span>
+                                    <span class="data-list">2022-12-22</span>
+                                    <span class="data-list">2022-12-03</span>
+                                </div>
+                                <div class="data email">
+                                    <span class="data-title">검진항목</span>
+                                    <span class="data-list">횡계의원</span>
+                                    <span class="data-list">수이비인후과의원</span>
+                                    <span class="data-list">방배지에프내과</span>
+                                    <span class="data-list">하림의원</span>
+                                    <span class="data-list">이아이내과</span>
+                                </div>
+                                <div class="data joined">
+                                    <span class="data-title">진단과</span>
+                                    <span class="data-list">내과</span>
+                                    <span class="data-list">이비인후과</span>
+                                    <span class="data-list">내과</span>
+                                    <span class="data-list">이비인후과</span>
+                                    <span class="data-list">내과</span>
+                                </div>
+                                <div class="data type">
+                                    <span class="data-title">상병코드</span>
+                                    <span class="data-list">AK0531</span>
+                                    <span class="data-list">AS3350</span>
+                                    <span class="data-list">AK588</span>
+                                    <span class="data-list">AK0531</span>
+                                    <span class="data-list">AS3350</span>
+                                </div>
+                                <div class="data type">
+                                    <span class="data-title">상병항목</span>
+                                    <span class="data-list">중이염</span>
+                                    <span class="data-list">급성 후두인두염</span>
+                                    <span class="data-list">급성 상악통엽</span>
+                                    <span class="data-list">중이염</span>
+                                    <span class="data-list">급성 후두인두염</span>
+                                </div>
+                                <div class="data status">
+                                    <span class="data-title">내원일수</span>
+                                    <span class="data-list">1</span>
+                                    <span class="data-list">1</span>
+                                    <span class="data-list">1</span>
+                                    <span class="data-list">1</span>
+                                    <span class="data-list">1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="/javascripts/forDetail.js" type="module"></script>
+</html>

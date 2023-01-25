@@ -4,9 +4,11 @@ var router = express.Router();
 
 const dashboard = require("./dashboard");
 const regpatient = require("./regPatient");
+const patientDetail = require("./patientDetail");
 
 router.use('/dashboard', dashboard);
 router.use('/regpatient', regpatient);
+router.use('/patientDetail', patientDetail);
 
 
 router.get('/', function(req, res, next) {

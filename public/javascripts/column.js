@@ -55,29 +55,22 @@ export default class Column {
 						this.renderItem(newItem);
 						regWin.close();
 					});
-				}, 500)
-
+				}, 100)
 			}
 		});
 		KanbanAPI.getItems(id).forEach(item => {
 			this.renderItem(item);
 		});
 	}
-
 	static createTag(tag) {
 		const range = document.createRange();
-
 		range.selectNode(document.body);
-
 		return range.createContextualFragment(`
 			${tag}
 		`).children[0];
 	}
-	
-
 	renderItem(data) {
 		const item = new Item(data.id, data.content);
-
 		this.elements.items.appendChild(item.elements.root);
 	}
 }

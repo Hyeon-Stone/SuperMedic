@@ -1,6 +1,7 @@
 import DropZone from "./dropZone.js";
 import DropZoneBefore from "./dropZoneBefore.js";
 import KanbanAPI from "./kanbanAPI.js";
+import {writeIdxedDB} from "./indexDB.js";
 
 const kanban_item = `
 <div class="kanban__item" draggable="true">
@@ -14,9 +15,11 @@ const kanban_item = `
 			<div class="age_title">나이</div>
 			<div class="blood_type_title">혈액형</div>
 			<div class="allergy_title">알레르기</div>
+			<div class="third_line">
 			<div class="age"></div>
 			<div class="blood_type"></div>
 			<div class="allergy"></div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -48,33 +51,37 @@ export default class Item {
 		this.elements.gender.textContent = info['gender'];
 		if (info['gender'] == '남') {
 			this.elements.gender.className += '_male'
-			console.log("asdasd")
 		}
 
 		const onBlur = () => {
 			const newContent = this.elements.input.textContent.trim();
-
 			if (newContent == this.content) {
 				return;
 			}
-
 			this.content = newContent;
-
 			KanbanAPI.updateItem(id, {
 				content: this.content
 			});
 		};
-
 		this.elements.input.addEventListener("blur", onBlur);
 		this.elements.root.addEventListener("dblclick", () => {
-			const check = confirm("Are you sure you want to delete this item?");
+			// const check = confirm("Are you sure you want to delete this item?");
 
-			if (check) {
-				KanbanAPI.deleteItem(id);
+			// if (check) {
+			// 	KanbanAPI.deleteItem(id);
 
-				this.elements.input.removeEventListener("blur", onBlur);
-				this.elements.root.parentElement.removeChild(this.elements.root);
-			}
+			// 	this.elements.input.removeEventListener("blur", onBlur);
+			// 	this.elements.root.parentElement.removeChild(this.elements.root);
+			// }
+			const contents = [
+				{id: 'name', content: this.elements.name.textContent},
+				{id: 'age', content: this.elements.age.textContent}, 
+				{id: 'blood_type', content: this.elements.blood_type.textContent},
+				{id: 'allergy', content: this.elements.allergy.textContent},
+				{id: 'gender', content: this.elements.gender.textContent}
+			];
+			writeIdxedDB(contents);
+			window.open('patientDetail', '환자 상세 정보','width=1100px,height=600px');
 		});
 
 		this.elements.root.addEventListener("dragstart", e => {
@@ -88,9 +95,7 @@ export default class Item {
 
 	static createTag(tag) {
 		const range = document.createRange();
-
 		range.selectNode(document.body);
-
 		return range.createContextualFragment(`
 			${tag}
 		`).children[0];

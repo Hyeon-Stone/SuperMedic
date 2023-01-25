@@ -59,6 +59,7 @@
 }
 .kanban__column:nth-child(2) {
     width: 60%;
+    min-width: 630px;
     background-color: #F3F3F3;
 }
 
@@ -106,7 +107,6 @@
     height: inherit;
 	background: rgba(0, 0, 0, 0.25);
 }
-
 
 .kanban__add-item {
 	width: 100%;
@@ -187,8 +187,12 @@ body.dark .kanban__item-input {
     padding-right: 5px;
     object-fit: fill;
 }
+.kanban__column[data-id="2"] > .kanban__column-items > .kanban__item > .block > .info {
+    min-width: 180px;
+    max-width: 180px;
+}
 .info{
-    min-width: 200px;
+
     padding: 10px 15px;
 	box-sizing: border-box;
 	background: #fff;
@@ -199,18 +203,22 @@ body.dark .kanban__item-input {
     border-color: #a5a5a5 !important;
     box-shadow: 0 3px 3px rgba(180,180,180,0.25), 0 5px 5px rgba(180,180,180,0.22);
 }
+body.dark .info{
+    background-color: #3A3B3C;
+    color: #ccc;
+}
 .first_line{
     position:relative;
 }
 .name{
     display: inline-flex;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 .gender{
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     display: inline-flex;
     font-size: 10px;
@@ -224,8 +232,8 @@ body.dark .kanban__item-input {
 }
 .gender_male{
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     display: inline-flex;
     font-size: 10px;
@@ -238,14 +246,19 @@ body.dark .kanban__item-input {
     margin-left: 5px;
     
 }
+.third_line{
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%;
+}
 .age, .blood_type, .allergy{
-    width: 30%;
+    width: 31%;
     display: inline-block;
     justify-content: center;
     text-align: center;
+    font-size: 15px;
 }
 .allergy{
-    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -258,4 +271,9 @@ body.dark .kanban__item-input {
     display: inline-block;
     justify-content: center;
     text-align: center;
+}
+body.dark .add-item{
+    color: #ccc;
+    background-color: #3A3B3C;
+    box-shadow: 0 3px 3px rgb(180 180 180 / 25%), 0 5px 5px rgb(180 180 180 / 22%);
 }

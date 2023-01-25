@@ -205,7 +205,7 @@ body.dark .sidebar header .toggle{
 }
 
 .sidebar .menu{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .sidebar li.search-box{
@@ -367,19 +367,23 @@ body.dark .home .text{
     color: var(--text-color);
 }
 
+/**
+* Dashboard
+*/
 .dashboard .dash-content{
     padding-top: 20px;
 }
 .dash-content .title{
     display: flex;
     align-items: center;
-    margin: 60px 0 30px 0;
+    margin: 40px 0 20px 50px;
 }
 .dash-content .title i{
     position: relative;
     height: 35px;
     width: 35px;
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    content: url(../images/logo-fabicon.png);
     border-radius: 6px;
     color: var(--title-icon-color);
     display: flex;
@@ -388,23 +392,24 @@ body.dark .home .text{
     font-size: 24px;
 }
 .dash-content .title .text{
-    font-size: 24px;
+    font-size: 27px;
     font-weight: 500;
     color: var(--text-color);
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .dash-content .boxes{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 .dash-content .boxes .box{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     border-radius: 12px;
-    width: calc(100% / 3 - 15px);
+    width: 90%;
     padding: 15px 20px;
     background-color: var(--box1-color);
     transition: var(--tran-05);
@@ -435,6 +440,8 @@ body.dark .home .text{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 15px 20px;
+    background-color: var(--box1-color);
 }
 .activity .activity-data{
     display: flex;
@@ -445,15 +452,21 @@ body.dark .home .text{
     margin: 0 15px;
 }
 .activity-data .data-title{
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--text-color);
+    font-size: 1.4vw;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    border-bottom: 1px solid;
+    border-color: #e6e5e5;
+    padding-bottom: 3px;
+    white-space: nowrap;
 }
 .activity-data .data .data-list{
-    font-size: 18px;
+    font-size: 1.3vw;
     font-weight: 400;
     margin-top: 20px;
     white-space: nowrap;
+    text-align: center;
     color: var(--text-color);
 }
 
@@ -569,4 +582,153 @@ nav.close ~ .dashboard{
 }
 .nav{
     background-color: var(--primary-color);
+}
+
+/**
+* patientDetatil
+*/
+.patient_name{
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 500;
+    /* padding-top: 20px; */
+}
+.patient_gender, .patient_gender_male{
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    margin: 10px 0px 0px 7px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #FB88FF;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+    padding-top: 2px;
+}
+.patient_gender_male{
+    background-color: #0090FF !important;
+}
+.basic_info{
+    position:relative;    
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+    margin-top: 30px;
+}
+
+.basic{
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.menu_detail{
+    margin-top: 10px;
+    border-top: solid 1px;
+    border-color: rgba(0,0,0,0.2);
+}
+.text-title{
+    min-width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #000 !important;
+}
+.nav-info:first-child{
+    margin-top: 20px !important;
+}
+.nav-info{
+    margin-top: 0px !important;
+    margin-left: 10px;
+}
+body.dark .patient_name {
+    color: #ccc;
+}
+body.dark .basic{
+    color: #ccc;
+}
+body.dark .menu_detail{
+    margin-top: 10px;
+    border-top: solid 1px;
+    border-color: #ccc;
+}
+.patient_age, .patient_blood_type, .patient_allergy,.patient_height, .patient_weight{
+    margin-left: 10px;
+    border-left: solid 1px #707070;
+    padding-left: 10px;
+    line-height: 25px;
+    color: #000 !important;
+}
+.health{
+    font-weight: bold !important;
+    color: #000 !important;
+}
+.line{
+    margin: 10px;
+    display: flex;
+}
+.line_title{
+    font-size: 1.5vw;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+    transition: var(--tran-03);
+    min-width: 110px;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #000 !important;
+}
+.line_data{
+    min-width: 100px;
+    margin-left: 10px;
+    border-left: solid 1px #707070;
+    padding-left: 10px;
+    line-height: 25px;
+    text-align: center;
+    color: #000 !important;
+}
+.line > img{
+    padding-left: 5px;
+}
+.orange{
+    width: 100px;
+    content: url("../images/orange.png");
+}
+.green{
+    width: 100px;
+    content: url("../images/green.png");
+}
+.red{
+    width: 100px;
+    content: url("../images/red.png");
+}
+body.dark .text-title{
+    color:#ccc !important;
+}
+body.dark .text{
+    color:#ccc !important;
+}
+body.dark .line_data{
+    color:#ccc !important;
+}
+body.dark .line_title{
+    color:#ccc !important;
+}
+body.dark .data-title{
+    color:#ccc !important;
 }
