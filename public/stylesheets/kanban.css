@@ -189,10 +189,9 @@ body.dark .kanban__item-input {
 }
 .kanban__column[data-id="2"] > .kanban__column-items > .kanban__item > .block > .info {
     min-width: 180px;
-    max-width: 180px;
+    /* max-width: 180px; */
 }
 .info{
-
     padding: 10px 15px;
 	box-sizing: border-box;
 	background: #fff;

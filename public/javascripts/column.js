@@ -15,10 +15,8 @@ export default class Column {
 		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
 		this.elements.items = this.elements.root.querySelector(".kanban__column-items");
 		this.elements.root.dataset.id = id;
-		if(id != 2){
-			const topDropZone = DropZone.createDropZone();
-			this.elements.root.appendChild(topDropZone);
-		}
+		const topDropZone = DropZone.createDropZone();
+		this.elements.root.appendChild(topDropZone);
 
 		// 칸반보드 각 제목의 title_icon class의 태그 생성
 		this.elements.icon = Column.createTag(`<span class="title_icon"></span>`);

@@ -4,7 +4,13 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "deploy:osx": "electron-builder --mac",
+    "deploy:win": "npm run deploy:win32 && npm run deploy:win64",
+    "deploy:win32": "electron-builder --win nsis:ia32",
+    "deploy:win64": "electron-builder --win nsis:x64",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "repository": "",
   "keywords": [
@@ -13,15 +19,72 @@
   ],
   "author": "Hyeon-Stone",
   "license": "",
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
+  "build": {
+    "productName": "슈퍼메딕",
+    "appId": "com.supermedic",
+    "asar": true,
+    "mac": {
+      "target": [
+        "default"
+      ]
+    },
+    "dmg": {
+      "title": "슈퍼메딕"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    }
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
-    "electron": "^22.0.2",
+    "electron": "^22.0.3",
+    "electron-builder": "^22.10.3",
+    "electron-packager": "^17.1.1",
     "express": "^4.18.2",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "upgrade": "^1.1.0"
+  },
+  "extraResources": [
+    {
+      "from": "/node_modules",
+      "to": "/node_modules",
+      "filter": [
+        "**/*"
+      ]
+    }
+  ],
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "electron": "^22.0.3",
+    "electron-squirrel-startup": "^1.0.0",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
     "upgrade": "^1.1.0"
   }
 }

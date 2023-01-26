@@ -9,14 +9,14 @@ let mainWindow;
 function createMainWindow() {
     mainWindow = new BrowserWindow({
         title : "슈퍼메딕",
-        width: isDev ? 1400 : 500,
+        width: 1400,
         height: 1000,
-        icon: path.join(__dirname, './appLogo.png'),
+        icon: path.join(__dirname, 'appLogo.icns'),
         resizable: isDev,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: true,
-            // preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname, 'preload.js'),
         },
     });
     if (isDev) {
@@ -25,7 +25,6 @@ function createMainWindow() {
     console.log(__dirname)
     mainWindow.loadURL('http://localhost:3000/');
 }
-
 app.whenReady().then( () => {
     createMainWindow();
 
@@ -38,61 +37,6 @@ app.whenReady().then( () => {
 
     mainWindow.on('closed', () => (mainWindow = null));
 });
-
-// const menu = [
-//     ...(isMac
-//         ? [
-//             {
-//                 label: app.name,
-//                 submenu: [
-//                 {
-//                     label: 'About',
-//                     click: createDashBoardWindow,
-//                 },
-//                 ],
-//             },
-//         ]
-//     : []),
-//         {
-//             role: 'fileMenu',
-//         },
-//     ...(!isMac
-//     ? [
-//         {
-//             label: 'Help',
-//             submenu: [
-//                 {
-//                     label: 'About',
-//                     click: createDashBoardWindow,
-//                 },
-//             ],
-//         },
-//         ]
-//     : []),
-//     // {
-//     //   label: 'File',
-//     //   submenu: [
-//     //     {
-//     //       label: 'Quit',
-//     //       click: () => app.quit(),
-//     //       accelerator: 'CmdOrCtrl+W',
-//     //     },
-//     //   ],
-//     // },
-//     ...(isDev
-//     ? [
-//         {
-//             label: 'Developer',
-//             submenu: [
-//                 { role: 'reload' },
-//                 { role: 'forcereload' },
-//                 { type: 'separator' },
-//                 { role: 'toggledevtools' },
-//             ],
-//         },
-//     ]
-//     : []),
-// ];
 
 app.once('ready-to-show', () => {
     mainWindow.show()
