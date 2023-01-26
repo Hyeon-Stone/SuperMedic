@@ -67,7 +67,7 @@
 .kanban__column-title {
 	/* margin-bottom: 10px; */
     margin : 1rem 0rem 0.1rem 0rem;  
-	font-size: 1.2vw;
+	font-size: 1.02vw;
     white-space: nowrap;
     color: var(--text-color);
 	user-select: none;
@@ -76,7 +76,7 @@
 }
 .kanban__column:nth-child(2) .kanban__item{
     display: inline-flex;
-    width: 33%;
+    /* width: 20%; */
     justify-content: center;
     margin-bottom: 10px;
 }
@@ -95,6 +95,18 @@
 
 .kanban__dropzone--active {
 	height: 20px;
+	background: rgba(0, 0, 0, 0.25);
+}
+.kanban__column[data-id="2"] > .kanban__column-items > .kanban__dropzone{
+    position: absolute;
+    width: 20px;
+    height: 96.5px;
+    transition: background 0.15s, width 0.15s;
+}
+.kanban__column[data-id="2"] > .kanban__column-items > .kanban__dropzone--active{
+    position:absolute;
+    width: 30px;
+    height: 96.5px;
 	background: rgba(0, 0, 0, 0.25);
 }
 .kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone{
@@ -177,6 +189,9 @@ body.dark .kanban__item-input {
     padding: 2px 4px 2px 4px;
     cursor: pointer;
 }
+.add-item > span{
+    font-weight: bold;
+}
 .title_icon{
     content: url('https://api.iconify.design/flat-color-icons/calendar.svg');
     padding-right: 5px;
@@ -188,8 +203,8 @@ body.dark .kanban__item-input {
     object-fit: fill;
 }
 .kanban__column[data-id="2"] > .kanban__column-items > .kanban__item > .block > .info {
-    min-width: 180px;
-    /* max-width: 180px; */
+    min-width: 170px;
+    max-width: 170px;
 }
 .info{
     padding: 10px 15px;
@@ -255,7 +270,7 @@ body.dark .info{
     display: inline-block;
     justify-content: center;
     text-align: center;
-    font-size: 15px;
+    font-size: 1.1vw;
 }
 .allergy{
     white-space: nowrap;

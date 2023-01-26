@@ -19,9 +19,9 @@ function createMainWindow() {
             preload: path.join(__dirname, 'preload.js'),
         },
     });
-    if (isDev) {
-        mainWindow.webContents.openDevTools();
-    }
+    // if (isDev) {
+    //     mainWindow.webContents.openDevTools();
+    // }
     console.log(__dirname)
     mainWindow.loadURL('http://localhost:3000/');
 }

@@ -81,7 +81,7 @@ export default class Item {
 				{id: 'gender', content: this.elements.gender.textContent}
 			];
 			writeIdxedDB(contents);
-			window.open('patientDetail', '환자 상세 정보','width=1100px,height=600px');
+			window.open('patientDetail', '환자 상세 정보','width=1100px,height=800px');
 		});
 
 		this.elements.root.addEventListener("dragstart", e => {
