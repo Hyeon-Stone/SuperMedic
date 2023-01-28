@@ -5,6 +5,7 @@ const isMac = process.platform === 'darwin';
 const path = require('path');
 require('./app')
 let mainWindow;
+Menu.setApplicationMenu(null);
 
 function createMainWindow() {
     mainWindow = new BrowserWindow({
@@ -25,6 +26,7 @@ function createMainWindow() {
     console.log(__dirname)
     mainWindow.loadURL('http://localhost:3000/');
 }
+
 app.whenReady().then( () => {
     createMainWindow();
 
@@ -32,9 +34,6 @@ app.whenReady().then( () => {
         if (BrowserWindow.getAllWindows().length === 0) 
             createMainWindow();
     });
-    // const mainMenu = Menu.buildFromTemplate(menu);
-    // Menu.setApplicationMenu(mainMenu);
-
     mainWindow.on('closed', () => (mainWindow = null));
 });
 

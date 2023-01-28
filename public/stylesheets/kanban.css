@@ -88,36 +88,53 @@
     display: none;
 }
 
-.kanban__dropzone {
+.kanban__dropzone,
+.kanban__dropzone2 {
 	height: 10px;
 	transition: background 0.15s, height 0.15s;
+    z-index: 1;
+    position: relative;
 }
 
-.kanban__dropzone--active {
+.kanban__dropzone--active,
+.kanban__dropzone2--active {
 	height: 20px;
 	background: rgba(0, 0, 0, 0.25);
 }
-.kanban__column[data-id="2"] > .kanban__column-items > .kanban__dropzone{
+.kanban__column > .kanban__column-items > .kanban__dropzone{
     position: absolute;
-    width: 20px;
-    height: 96.5px;
+    width: 15%;
+    height: 100%;
+    transition: background 0.15s, width 0.15s;
+    z-index: 0;
+
+}
+.kanban__column > .kanban__column-items > .kanban__dropzone--active{
+    position:absolute;
+	background: rgba(0, 0, 0, 0.02);
+    z-index: 0;
+}
+.kanban__column[data-id="2"] > .kanban__column-items > .kanban__dropzone{
+    width: 50%;
+    height: 100%;
     transition: background 0.15s, width 0.15s;
 }
 .kanban__column[data-id="2"] > .kanban__column-items > .kanban__dropzone--active{
-    position:absolute;
-    width: 30px;
-    height: 96.5px;
-	background: rgba(0, 0, 0, 0.25);
+	background: rgba(0, 0, 0, 0.02);
 }
-.kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone{
+.kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone,
+.kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone2{
     width: 20px;
     height: inherit;
     transition: background 0.15s, width 0.15s;
+    z-index: 1;
 }
-.kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone--active{
-    width: 30px;
+.kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone--active,
+.kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone2--active{
+    width: 20px;
     height: inherit;
 	background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
 }
 
 .kanban__add-item {

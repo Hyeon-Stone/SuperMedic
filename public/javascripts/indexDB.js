@@ -1,11 +1,11 @@
 const idxedDB = window.indexedDB;
 
-// 2. 브라우저에서 지원하는지 체크하기
+// 브라우저에서 지원하는지 체크하기
 if (!idxedDB) 
     window.alert('해당 브라우저에서는 indexedDB를 지원하지 않습니다.')
 else {
     let db;
-    const request = idxedDB.open('detailViewDB');   // 3. SampleDB(db) 열기
+    const request = idxedDB.open('detailViewDB');   // 3. [DB명]](db) 열기
     
     request.onupgradeneeded =(e)=> { 
         db = e.target.result;
@@ -29,8 +29,7 @@ function writeIdxedDB(contents) {
     }
     request.onsuccess =(e)=> {
         const db = request.result;
-        const transaction = db.transaction(['content'], 'readwrite');  
-      //person 객체 저장소에 읽기&쓰기 권한으로 transaction 생성
+        const transaction = db.transaction(['content'], 'readwrite');   // 읽기&쓰기 권한으로 transaction 생성
 
       // 완료, 실패 이벤트 처리
         transaction.oncomplete =(e)=> {
@@ -56,7 +55,7 @@ function writeIdxedDB(contents) {
  */
 //getIdxedDBValue(1);  // { id:1, content:"a" }
 async function getIdxedDBValue(key) {
-    return new Promise (resolve => {
+    return new Promise (resolve => {    // Promise를 통해 비동기 동작함으로써 데이터 return
         const request = window.indexedDB.open('detailViewDB');  // 1. DB 열기
         request.onerror =(e)=> console.log(e.target.errorCode);
     
@@ -82,7 +81,7 @@ async function getIdxedDBValue(key) {
  */
 // getIdxedDBValues();  // { id:1, content:"a" }, {id: 2, content: 'b'}, {id: 3, content: 'c'}
 async function getIdxedDBValues() {
-    return new Promise (resolve => {
+    return new Promise (resolve => {// Promise를 통해 비동기 동작함으로써 데이터 return
         const request = window.indexedDB.open('detailViewDB');      // 1. DB 열기
         request.onerror =(e)=> console.log(e.target.errorCode);
     
@@ -180,4 +179,4 @@ function clearIdxedDBValue() {
         }
     }
 }
-export {writeIdxedDB, getIdxedDBValue, getIdxedDBValues, deleteIdxedDBValue, clearIdxedDBValue}
+export {writeIdxedDB, getIdxedDBValue, getIdxedDBValues, updateIdxedDBValue, deleteIdxedDBValue, clearIdxedDBValue}

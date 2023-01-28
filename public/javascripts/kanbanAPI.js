@@ -6,6 +6,7 @@ export default class KanbanAPI {
 		}
 		return column.items;
 	}
+
 	static insertItem(columnId, content) {
 		const data = read();
 		const column = data.find(column => column.id == columnId);
@@ -20,7 +21,7 @@ export default class KanbanAPI {
 		save(data);
 		return item;
 	}
-
+	
 	static updateItem(itemId, newProps) {
 		const data = read();
 		const [item, currentColumn] = (() => {
@@ -62,6 +63,17 @@ export default class KanbanAPI {
 			}
 		}
 		save(data);
+	}
+	static getposition(columnId, itemID){
+		const column = read().find(column => column.id == columnId);
+		if (!column) {
+			return [];
+		}
+		for(var i=0; i<column.items.length; i++) {
+			if (column.items[i].id == itemID)
+				return i;
+
+		}
 	}
 }
 

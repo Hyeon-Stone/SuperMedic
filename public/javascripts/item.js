@@ -38,6 +38,7 @@ export default class Item {
 		this.elements.root.prepend(frontDropZone);
 		this.elements.root.appendChild(bottomDropZone);
 
+		// 환자 직접 추가로 추가 시 데이터 파싱
 		const info = JSON.parse(content)
 		this.elements.name = this.elements.root.querySelector('.name')
 		this.elements.age = this.elements.root.querySelector('.age')
@@ -63,6 +64,7 @@ export default class Item {
 				content: this.content
 			});
 		};
+		
 		this.elements.input.addEventListener("blur", onBlur);
 		this.elements.root.addEventListener("dblclick", () => {
 			// const check = confirm("Are you sure you want to delete this item?");
