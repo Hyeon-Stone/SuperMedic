@@ -204,9 +204,6 @@ body.dark .sidebar header .toggle{
     transform: translateY(-50%) rotate(0deg);
 }
 
-.sidebar .menu{
-    margin-top: 20px;
-}
 
 .sidebar li.search-box{
     border-radius: 6px;
@@ -679,6 +676,8 @@ body.dark .menu_detail{
 .line{
     margin: 10px;
     display: flex;
+    vertical-align: middle;
+    text-align: center;
 }
 .line_title{
     font-size: 1.5vw;
@@ -686,7 +685,7 @@ body.dark .menu_detail{
     white-space: nowrap;
     opacity: 1;
     transition: var(--tran-03);
-    min-width: 110px;
+    min-width: 170px;
     height: 100%;
     text-align: center;
     align-items: center;
@@ -694,27 +693,30 @@ body.dark .menu_detail{
     color: #000 !important;
 }
 .line_data{
+    font-size: 1vw;
     min-width: 100px;
     margin-left: 10px;
     border-left: solid 1px #707070;
     padding-left: 10px;
-    line-height: 25px;
+    line-height: 35px;
+    vertical-align: middle !important;
     text-align: center;
+    margin: 0 auto;
     color: #000 !important;
 }
 .line > img{
     padding-left: 5px;
 }
 .orange{
-    width: 100px;
+    width: 8vw;
     content: url("../images/orange.png");
 }
 .green{
-    width: 100px;
+    width: 8vw;
     content: url("../images/green.png");
 }
 .red{
-    width: 100px;
+    width: 8vw;
     content: url("../images/red.png");
 }
 body.dark .text-title{
