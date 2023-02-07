@@ -30,7 +30,7 @@ export default class Column {
 		// 환자 직접 등록 시 대기 환자 목록으로 들어가도록 지정
 		if (id == 2){
 			document.querySelector('.add-item').addEventListener("click", () => {
-				let regWin = window.open('regpatient','환자 등록', 'width=600px,height=800px');
+				let regWin = window.open('regpatient','환자 등록', 'resizable=no, status=no, menubar=no, width=600px,height=800px');
 				setTimeout(() => {
 					let form = regWin.document.querySelector('form')
 					form.addEventListener("submit", () => {

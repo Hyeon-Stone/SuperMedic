@@ -53,6 +53,7 @@
     width: 20%;
     min-height: 80%;
     background-color: #E5E5E5;
+    /* min-width: 212px; */
 }
 
 .kanban__column:not(:last-child) {
@@ -60,10 +61,11 @@
 }
 .kanban__column:nth-child(2) {
     width: 60%;
+    /* min-width: 696px; */
     min-width: 630px;
     background-color: #F3F3F3;
+    
 }
-
 
 .kanban__column-title {
 	/* margin-bottom: 10px; */
@@ -74,6 +76,11 @@
 	user-select: none;
     font-weight: bold;
     display: inline-flex;
+}
+.kanban__column-items{
+    overflow: hidden;
+    
+    /* position: relative; */
 }
 .kanban__column:nth-child(2) .kanban__item{
     display: inline-flex;
@@ -88,7 +95,9 @@
 .kanban__item-input {
     display: none;
 }
-
+.kanban__item{
+    margin: 0 auto;
+}
 .kanban__dropzone,
 .kanban__dropzone2 {
 	height: 10px;
@@ -102,37 +111,38 @@
 	height: 20px;
 	background: rgba(0, 0, 0, 0.25);
 }
+
 .kanban__column > .kanban__column-items > .kanban__dropzone{
     position: absolute;
-    width: 15%;
-    height: 70%;
+    width: 16%;
+    height: 74vh;
     transition: background 0.15s, width 0.15s;
     z-index: 0;
-
 }
 .kanban__column > .kanban__column-items > .kanban__dropzone--active{
     position:absolute;
 	background: rgba(0, 0, 0, 0.02);
     z-index: 0;
 }
-.kanban__column[data-id="2"] > .kanban__column-items > .kanban__dropzone{
+.kanban__column[data-id='2'] > .kanban__column-items > .kanban__dropzone{
     width: 50%;
-    height: 70%;
-    transition: background 0.15s, width 0.15s;
 }
-.kanban__column[data-id="2"] > .kanban__column-items > .kanban__dropzone--active{
+
+.kanban__column > .kanban__column-items > .kanban__dropzone--active{
+    position:absolute;
 	background: rgba(0, 0, 0, 0.02);
+    z-index: 0;
 }
 .kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone,
 .kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone2{
-    width: 20px;
+    width: 10px;
     height: inherit;
     transition: background 0.15s, width 0.15s;
     z-index: 1;
 }
 .kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone--active,
 .kanban__column[data-id="2"] > .kanban__column-items >.kanban__item > .kanban__dropzone2--active{
-    width: 20px;
+    width: 10px;
     height: inherit;
 	background: rgba(0, 0, 0, 0.25);
     z-index: 1;
@@ -222,12 +232,13 @@ body.dark .kanban__item-input {
     padding-right: 5px;
     object-fit: fill;
 }
-.kanban__column[data-id="2"] > .kanban__column-items > .kanban__item > .block > .info {
-    /* min-width: 100vw; */
-    width: 12vw;
-    /* max-width: 0px; */
+
+.kanban__column[data-id='2']> .kanban__column-items > .kanban__item > .block > .info {
+    width: 14vw;
 }
 .info{
+    width: 100%;
+    margin: 0 auto;
     padding: 10px 15px;
 	box-sizing: border-box;
 	background: #fff;
@@ -299,6 +310,7 @@ body.dark .info{
     text-overflow: ellipsis;
     align-items: center;
     vertical-align:middle;
+    font-size: 1.0vw;
 }
 .age_title, .blood_type_title, .allergy_title{
     width: 30%;
@@ -311,4 +323,5 @@ body.dark .add-item{
     color: #ccc;
     background-color: #3A3B3C;
     box-shadow: 0 3px 3px rgb(180 180 180 / 25%), 0 5px 5px rgb(180 180 180 / 22%);
+    border-color: #a5a5a5 !important;
 }

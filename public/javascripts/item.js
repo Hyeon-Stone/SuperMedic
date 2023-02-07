@@ -40,14 +40,19 @@ export default class Item {
 
 		// 환자 직접 추가로 추가 시 데이터 파싱
 		const info = JSON.parse(content)
+		// let type = info['blood_type'] == 'AB+' ? 2 : 1;
 		this.elements.name = this.elements.root.querySelector('.name')
 		this.elements.age = this.elements.root.querySelector('.age')
 		this.elements.blood_type = this.elements.root.querySelector('.blood_type')
 		this.elements.allergy = this.elements.root.querySelector('.allergy')
 		this.elements.gender = this.elements.root.querySelector('.gender')
+		this.elements.type = this.elements.root.querySelector('.type')
 		this.elements.name.textContent = info['name'];
-		this.elements.age.textContent = info['age'];
+		this.elements.age.textContent = info['age']+'세';
 		this.elements.blood_type.textContent = info['blood_type'];
+		// this.elements.blood_type.textContent = info['blood_type'].slice(0,type);
+		// this.elements.blood_type.appendChild(`<sup>${info['blood_type'].slice(type,type+1)}</sup>`);
+
 		this.elements.allergy.textContent = info['allergy'];
 		this.elements.gender.textContent = info['gender'];
 		if (info['gender'] == '남') {
@@ -83,7 +88,7 @@ export default class Item {
 				{id: 'gender', content: this.elements.gender.textContent}
 			];
 			writeIdxedDB(contents);
-			window.open('patientDetail', '환자 상세 정보','width=1100px,height=800px');
+			window.open('patientDetail', '환자 상세 정보','resizable=no, status=no, menubar=no, width=1200px,height=820px');
 		});
 
 		this.elements.root.addEventListener("dragstart", e => {

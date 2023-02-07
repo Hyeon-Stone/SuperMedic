@@ -5,13 +5,15 @@ const isMac = process.platform === 'darwin';
 const path = require('path');
 require('./app')
 let mainWindow;
-Menu.setApplicationMenu(null);
+// Menu.setApplicationMenu(null);
 
 function createMainWindow() {
     mainWindow = new BrowserWindow({
         title : "슈퍼메딕",
         width: 1400,
         height: 1000,
+        minWidth : 1400,
+        minHeight : 1000,
         icon: path.join(__dirname, 'appLogo.icns'),
         resizable: isDev,
         webPreferences: {
@@ -20,10 +22,9 @@ function createMainWindow() {
             preload: path.join(__dirname, 'preload.js'),
         },
     });
-    if (isDev) {
-        mainWindow.webContents.openDevTools();
-    }
-    console.log(__dirname)
+    // if (isDev) {
+    //     mainWindow.webContents.openDevTools();
+    // }
     mainWindow.loadURL('http://localhost:3000/');
 }
 
